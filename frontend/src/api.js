@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://mern-dashboard-api.onrender.com",
+  baseURL: "https://mern-dashbord.onrender.com",
 });
 
 export default API;
