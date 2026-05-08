@@ -6,7 +6,12 @@ const app = express();
 const userRoutes = require("./routes/auth.js");
 const appleRoutes = require("./controller/applecontroller.js");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://mern-dashbord.vercel.app",
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use("/api/auth", userRoutes);
 app.use("/api", userRoutes);
