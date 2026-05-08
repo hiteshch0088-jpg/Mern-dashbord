@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const userRoutes = require("./routes/auth.js");
-// const appleRoutes = require("./controller/applecontroller.js");
+const appleRoutes = require("./controller/applecontroller.js");
 
 app.use(
   cors({
@@ -17,15 +17,15 @@ app.use(express.json());
 app.use("/api/auth", userRoutes);
 app.use("/api", userRoutes);/////////////////
 app.use("/tt", userRoutes);
-// app.use("/api", userRoutes);
-// app.use("/api/auth", userRoutes);
-// app.use("/api/profile", userRoutes);//--------------------------------
-// app.use("/uploads", express.static("uploads"));
-// app.use("/api/auth", userRoutes);
-// app.use("/api/auth", userRoutes);
-// app.use("/ll/api", userRoutes);
-// app.use("/api", appleRoutes);
-// app.use("/api/auth", userRoutes);
+app.use("/api", userRoutes);
+app.use("/api/auth", userRoutes);
+app.use("/api/profile", userRoutes);//--------------------------------
+app.use("/uploads", express.static("uploads"));
+app.use("/api/auth", userRoutes);
+app.use("/api/auth", userRoutes);
+app.use("/ll/api", userRoutes);
+app.use("/api", appleRoutes);
+app.use("/api/auth", userRoutes);
 
 app.use((req, res, next) => {
   res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
