@@ -15,6 +15,7 @@ import {
   PieChart
 } from "recharts";
 import axios from "axios";
+import api from "../api/axios";
 
 export default function CardRow({ open }) {
   const drawerWidth = 240;
@@ -33,7 +34,7 @@ export default function CardRow({ open }) {
 useEffect(() => {
   const fetchDashboard = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/dashboard");
+      const res = await axios.get("https://mern-dashboard-api.onrender.com/api/dashboard");
 
      setData(res.data.data || []);
         setPieData(res.data.datal || []);
@@ -77,7 +78,7 @@ const handleUpload = async (e) => {
     formData.append("image", file);
     formData.append("userId", userId);
 
-    const res = await axios.post("http://localhost:5000/api/profile/upload",
+    const res = await axios.post("https://mern-dashboard-api.onrender.com/api/profile/upload",
       formData
     );
 
@@ -286,7 +287,7 @@ const handleEdit = () => {
       <div style={{ textAlign: "center" }}>
       
       <Avatar
-        src={image ? `http://localhost:5000/uploads/${image}` : ""}
+        src={image ? `https://mern-dashboard-api.onrender.com/uploads/${image}` : ""}
         sx={{ width: 100, height: 100, margin: "auto" }}
       />
 
