@@ -15,7 +15,7 @@ import {
   PieChart
 } from "recharts";
 import axios from "axios";
-// import Api from "../api.js";
+import API from "../api";
 
 export default function CardRow({ open }) {
   const drawerWidth = 240;
@@ -35,8 +35,8 @@ useEffect(() => {
   const fetchDashboard = async () => {
     try {
       // const res = await API.get("/api/dashboard");
-      const res = await axios.get("https://mern-dashbord.onrender.com/api/dashboard");
-
+      // const res = await axios.get("https://mern-dashbord.onrender.com/api/dashboard");
+const res = await API.get("/api/dashboard");
      setData(res.data.data || []);
         setPieData(res.data.datal || []);
         setBarData(res.data.dataa || []);
@@ -79,9 +79,13 @@ const handleUpload = async (e) => {
     formData.append("image", file);
     formData.append("userId", userId);
 
-    const res = await axios.post("https://mern-dashboard-api.onrender.com/api/profile/upload",
-      formData
-    );
+    // const res = await axios.post("https://mern-dashboard-api.onrender.com/api/profile/upload",
+    //   formData
+    // );
+    const res = await API.post(
+  "/api/profile/upload",
+  formData
+);
 
     setImage(res.data.image);
 
@@ -288,7 +292,12 @@ const handleEdit = () => {
       <div style={{ textAlign: "center" }}>
       
       <Avatar
-        src={image ? `https://mern-dashboard-api.onrender.com/uploads/${image}` : ""}
+        // src={image ? `https://mern-dashboard-api.onrender.com/uploads/${image}` : ""}
+        src={
+  image
+    ? `${import.meta.env.VITE_API_URL}/uploads/${image}`
+    : ""
+}
         sx={{ width: 100, height: 100, margin: "auto" }}
       />
 
