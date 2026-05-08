@@ -15,7 +15,7 @@ import {
   PieChart
 } from "recharts";
 import axios from "axios";
-import api from "../api/axios";
+import api from "../api.js";
 
 export default function CardRow({ open }) {
   const drawerWidth = 240;
