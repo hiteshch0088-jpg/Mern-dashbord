@@ -15,7 +15,7 @@ import {
   PieChart
 } from "recharts";
 import axios from "axios";
-import Api from "../api.js";
+// import Api from "../api.js";
 
 export default function CardRow({ open }) {
   const drawerWidth = 240;
@@ -34,8 +34,8 @@ export default function CardRow({ open }) {
 useEffect(() => {
   const fetchDashboard = async () => {
     try {
-      const res = await API.get("/api/dashboard");
-      // const res = await axios.get("https://mern-dashbord.onrender.com/api/dashboard");
+      // const res = await API.get("/api/dashboard");
+      const res = await axios.get("https://mern-dashbord.onrender.com/api/dashboard");
 
      setData(res.data.data || []);
         setPieData(res.data.datal || []);
