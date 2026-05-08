@@ -9,6 +9,7 @@ const appleRoutes = require("./controller/applecontroller.js");
 app.use(
   cors({
     origin: "https://mern-dashbord.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
