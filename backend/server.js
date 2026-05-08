@@ -1,11 +1,8 @@
 require("dotenv").config();
-
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
 const app = express();
-
 const userRoutes = require("./routes/auth.js");
 const appleRoutes = require("./controller/applecontroller.js");
 
@@ -16,20 +13,25 @@ app.use(
     credentials: true,
   })
 );
-
 app.use(express.json());
-
-// Static
-app.use("/uploads", express.static("uploads"));
-
-// Routes
+app.use("/api/auth", userRoutes);
+app.use("/hh/api", userRoutes);/////////////////
+app.use("/tt", userRoutes);
 app.use("/api", userRoutes);
+app.use("/api/auth", userRoutes);
+app.use("/api/profile", userRoutes);//--------------------------------
+app.use("/uploads", express.static("uploads"));
+app.use("/api/auth", userRoutes);
+app.use("/api/auth", userRoutes);
+app.use("/ll/api", userRoutes);
 app.use("/api", appleRoutes);
+app.use("/api/auth", userRoutes);
 
-// Test Route
-app.get("/", (req, res) => {
-  res.send("API is running...");
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+  next();
 });
+
 mongoose.connect("mongodb+srv://hiteshch0088_db_user:XFF1W8qycUIOOBIO@cluster0.kq02z6s.mongodb.net/mern-dashboard")  
 .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
