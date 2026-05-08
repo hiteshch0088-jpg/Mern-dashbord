@@ -26,8 +26,8 @@ app.use((req, res, next) => {
   next();
 });
 
-mongoose.connect("mongodb://localhost:27017/mern-dashboard")
-  .then(() => console.log("Connected to MongoDB"))
+mongoose.connect("mongodb+srv://hiteshch0088_db_user:XFF1W8qycUIOOBIO@cluster0.kq02z6s.mongodb.net/mern-dashboard")  
+.then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
 app.get("/", (req, res) => {
