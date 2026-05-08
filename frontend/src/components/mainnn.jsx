@@ -34,7 +34,7 @@ export default function CardRow({ open }) {
 useEffect(() => {
   const fetchDashboard = async () => {
     try {
-      const res = await axios.get("https://mern-dashboard-api.onrender.com/api/dashboard");
+      const res = await axios.get("https://mern-dashboard-api.onrender.com/api/dashboard/");
 
      setData(res.data.data || []);
         setPieData(res.data.datal || []);

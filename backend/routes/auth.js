@@ -19,7 +19,7 @@ router.post("/send-otp", authcontroller.sendOTP);
 router.post("/verify-otp", authcontroller.verifyOTP);
 router.post("/signup",logincontroller.signup);
 router.post("/login",logincontroller.login);
-router.get("/", dashbordcontroller.dashboard);
+router.get("/dashboard", dashbordcontroller.dashboard);
 router.get("/", forgotcontroller.forgotPassword);
 router.get("/aa/orders", ordercontroller.getAllOrders);
 router.post("/bb/orders", ordercontroller.createOrder);
